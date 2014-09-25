@@ -27,7 +27,7 @@ namespace ConsoleApplicationBase
 
             try
             {
-                LoadCommands();
+                Bootstrap();
 
                 if (!string.IsNullOrEmpty(options.InputFile))
                 {
@@ -48,6 +48,18 @@ namespace ConsoleApplicationBase
 
                 Environment.Exit(1);
             }
+
+            Environment.Exit(0);
+        }
+
+        private static void Bootstrap()
+        {
+            //initialize IoC container here
+            //ContainerManager.InitializeContainer();
+            //ContainerManager.InitializeMapping();
+
+            //fetch all commands for this console application
+            LoadCommands();
         }
 
         private static void LoadCommands()
