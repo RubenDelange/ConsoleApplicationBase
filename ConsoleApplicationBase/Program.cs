@@ -282,7 +282,15 @@ namespace ConsoleApplicationBase
                     command.Name,
                     BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.Public,
                     null, null, inputArgs);
-                return result.ToString();
+
+                if (result.GetType() == typeof(Task<string>))
+                {
+                    return ((Task<string>)result).Result;
+                }
+                else
+                {
+                    return result.ToString();
+                }
             }
             catch (TargetInvocationException ex)
             {
