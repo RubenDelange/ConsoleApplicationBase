@@ -27,6 +27,9 @@ namespace ConsoleApplicationBase.Commands
         }
 
         /*
+         * No need to create params as input parameters for the Func
+         * It's possible to use the input parameters from the initial method in the Func operation
+         * 
         private static string ExecuteCommand(Func<object[], string> command, params object[] parameters)
         {
             var resultAsString = command(parameters);
