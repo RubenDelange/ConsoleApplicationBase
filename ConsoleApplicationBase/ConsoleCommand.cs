@@ -9,6 +9,8 @@ namespace ConsoleApplicationBase
 {
     public class ConsoleCommand
     {
+        private const string DefaultCommandLibraryClassName = "DefaultCommands";
+
         public ConsoleCommand(string input)
         {
             // Ugly regex to split string on spaces, but preserve quoted text intact:
@@ -24,7 +26,8 @@ namespace ConsoleApplicationBase
                     this.Name = stringArray[i];
 
                     // Set the default:
-                    this.LibraryClassName = "DefaultCommands";
+                    this.LibraryClassName = DefaultCommandLibraryClassName;
+
                     string[] s = stringArray[0].Split('.');
                     if (s.Length == 2)
                     {
